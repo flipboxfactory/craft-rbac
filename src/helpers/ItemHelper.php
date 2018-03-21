@@ -107,7 +107,12 @@ class ItemHelper
             return null;
         }
 
-        if (!isset($row['data']) || ($data = @unserialize(is_resource($row['data']) ? stream_get_contents($row['data']) : $row['data'])) === false) {
+        if (!isset($row['data']) ||
+            ($data = @unserialize(is_resource($row['data']) ?
+                stream_get_contents($row['data']) :
+                $row['data'])
+            ) === false
+        ) {
             $data = null;
         }
 
@@ -268,7 +273,12 @@ class ItemHelper
     {
         $class = $row['type'] == Item::TYPE_PERMISSION ? Permission::class : Role::class;
 
-        if (!isset($row['data']) || ($data = @unserialize(is_resource($row['data']) ? stream_get_contents($row['data']) : $row['data'])) === false) {
+        if (!isset($row['data']) ||
+            ($data = @unserialize(is_resource($row['data']) ?
+                stream_get_contents($row['data']) :
+                $row['data'])
+            ) === false
+        ) {
             $data = null;
         }
 
